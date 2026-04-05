@@ -14,8 +14,6 @@ A simple and modern To-Do List App built using HTML, CSS, and JavaScript.
 ## Author
 Hooria Sadiq
 
-![App Screenshot](screenshot.png)
-
 
 # syntecxhub_todo_app
 Simple To-Do List App using HTML, CSS, JS
