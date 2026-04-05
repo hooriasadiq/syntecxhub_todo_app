@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>TO DO LIST</h1>
+
+  <div class="input-box">
+    <input type="text" id="taskInput" placeholder="Add new task...">
+    <button onclick="addTask()">Add ➕</button>
+  </div>
+
+  <ul id="taskList"></ul>
+</div>
+
+<script>
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function renderTasks() {
+  const list = document.getElementById("taskList");
+  list.innerHTML = "";
+
+  tasks.forEach((task, index) => {
+    const li = document.createElement("li");
+
+    if (task.completed) li.classList.add("completed");
+
+    li.innerHTML = `
+      ${task.text}
+      <div class="actions">
+        <span onclick="toggleTask(${index})">Done ✅</span>
+        <span onclick="deleteTask(${index})">Delete 🗑️</span>
+      </div>
+    `;
+
+    list.appendChild(li);
+  });
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function addTask() {
+  const input = document.getElementById("taskInput");
+  if (input.value.trim() === "") return;
+
+  tasks.push({ text: input.value, completed: false });
+  input.value = "";
+  renderTasks();
+}
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  renderTasks();
+}
+
+function toggleTask(index) {
+  tasks[index].completed = !tasks[index].completed;
+  renderTasks();
+}
+
+renderTasks();
+</script>
+</body>
+</html>
