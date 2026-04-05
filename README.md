@@ -9,7 +9,7 @@ A simple and modern To-Do List App built using HTML, CSS, and JavaScript.
 - Data saved in LocalStorage
 
 ## Live Demo
-(https://github.com/hooriasadiq/syntecxhub_todolist/)
+(https://github.com/hooriasadiq/syntecxhub_todo_app/)
 
 ## Author
 Hooria Sadiq
